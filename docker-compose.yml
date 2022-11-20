@@ -8,6 +8,8 @@ services:
       DB_STR: postgres://postgres:example@db/postgres?sslmode=disable
     ports:
       - 3000:3000
+    links:
+      - db
 
   db:
     image: postgres
