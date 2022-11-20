@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  ics:
+    image: ics
+    restart: always
+    environment:
+      DB_STR: postgres://postgres:example@db/postgres?sslmode=disable
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
