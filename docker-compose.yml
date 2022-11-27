@@ -4,6 +4,8 @@ services:
   ics:
     image: ics
     restart: always
+    deploy:
+      replicas: 3
     environment:
       DB_STR: postgres://postgres:example@db/postgres?sslmode=disable
     ports:
